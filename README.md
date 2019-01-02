@@ -53,7 +53,7 @@ _BATCH_NORM_EPSILON = 1e-5</pre></code>
  
 ## Inference(predict) on training dataset
 * run <pre><code>python3 src/main.py --training_predict</code></pre>
-<b> *`--resnet_size` should be same as resnet size you gave when training.<br>   
+<b> *`--resnet_size` should be same as resnet size you gave when training.</b><br>   
 predicted labels text file will be located "TRAINING_DATA_DIR" in src/config.py. You can set this output location by giving `--training_predict_output_path`.<br>
 predicted labels text filename will include timestamp(e.g. labels_pred_1546239433.txt).<br>
 
@@ -61,7 +61,7 @@ predicted labels text filename will include timestamp(e.g. labels_pred_154623943
 * put your test image(.jpg files) dataset in <b>img/test/</b>
 * run <pre><code>python3 src/make_labels_true.py</pre></code>
 * run <pre><code>python3 src/main.py --test_predict</pre></code>
-<b> *`--resnet_size` should be same as resnet size you gave when training.<br>
+<b> *`--resnet_size` should be same as resnet size you gave when training.</b><br>
 predicted labels text file will be located "TEST_DATA_DIR" in src/config.py. You can set this output location by giving `--test_predict_output_path`.<br>
 predicted labels text filename will include timestamp.(e.g. labels_pred_1546239433.txt).
 

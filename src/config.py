@@ -13,7 +13,6 @@ TRAINING_IMG_DIR = "../img/" + DATASET + "/training"                            
 TRAINING_JSON_PATH = "../data/" + DATASET + "/training/label_mapped.json"           # training Label mapping json file. (Key: original label e.g. 15136734052, Value: mapped label(0~(num_classes-1)))
 TRAINING_DATA_DIR = "../data/" + DATASET + "/training"
 TEST_IMG_DIR = "../img/" + DATASET + "/test"                                        # test/evaluation images
-TEST_JSON_PATH = "../data/" + DATASET + "/test/label_mapped.json"                   # test Label mapping json file. (Key: original label e.g. 15136734052, Value: mapped label(0~(num_classes-1)))
 TEST_DATA_DIR = "../data/" + DATASET + "/test"
 
 # checkpoint

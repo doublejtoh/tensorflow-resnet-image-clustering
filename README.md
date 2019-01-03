@@ -52,23 +52,25 @@ _BATCH_NORM_DECAY = 0.997
 _BATCH_NORM_EPSILON = 1e-5</pre></code>
  
 ## Inference(predict) on training dataset
+* put your training image(.jpg files) dataset in <b>img/[YourDatasetName]/training/</b>
 * run <pre><code>python3 src/main.py --training_predict</code></pre>
-<b> *`--resnet_size` should be same as resnet size you gave when training.<br>   
+<b> *`--resnet_size` should be same as resnet size you gave when training.</b><br>   
 predicted labels text file will be located "TRAINING_DATA_DIR" in src/config.py. You can set this output location by giving `--training_predict_output_path`.<br>
 predicted labels text filename will include timestamp(e.g. labels_pred_1546239433.txt).<br>
 
 ## Inference(predict) on test dataset
-* put your test image(.jpg files) dataset in <b>img/test/</b>
+* put your test image(.jpg files) dataset in <b>img/[YourDatasetName]/test/</b>
 * run <pre><code>python3 src/make_labels_true.py</pre></code>
 * run <pre><code>python3 src/main.py --test_predict</pre></code>
-<b> *`--resnet_size` should be same as resnet size you gave when training.<br>
+<b> *`--resnet_size` should be same as resnet size you gave when training.</b><br>
 predicted labels text file will be located "TEST_DATA_DIR" in src/config.py. You can set this output location by giving `--test_predict_output_path`.<br>
 predicted labels text filename will include timestamp.(e.g. labels_pred_1546239433.txt).
 
 ## Evaluation on training dataset
 
 * run <pre><code>python3 src/evaluation.py --labels_pred1 [labels_pred_file] --labels_pred2 [labels_pred_file]</pre></code>
-It will print evaluation score of each predicted labels file.
+It will print evaluation score of each predicted labels file.<br>
+*`--labels_pred2` is optional.
 
 ## Code reference
 

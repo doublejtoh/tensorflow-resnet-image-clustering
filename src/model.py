@@ -356,7 +356,7 @@ class Model:
         config.num_batches = int(config.num_images / config.batch_size)
         config.weight_decay = _WEIGHT_DECAY
         config.momentum = _MOMENTUM
-
+        config.batch_steps = config.num_batches if config.num_images % config.batch_size == 0 and config.num_batches != 0 else config.num_batches + 1
         # input function
         self.iter = input_fn_eval(
             inputs=filenames,
@@ -387,19 +387,17 @@ class Model:
             last_epoch = sess.run(self.global_epoch) - 1
             print("Batch size : %s" % (config.batch_size))
             print("Number of images for evaluation : %s " % (config.num_images))
-            print("Number of batches for evaluation : %s " % (config.num_batches))
+            print("Number of batches for evaluation : %s " % (config.batch_steps))
             print("Evaluating from epoch %s " % (last_epoch))
 
-            re_model = re.compile("^(\d+)_")
-
             for _ in range(1):
-                with open(pred_out_path + "_" + str(int(time.time())) + ".txt", 'a') as pred_file:
-                    for i in range(config.num_batches):
-                        start_vect = time.time()
-                        inputs = sess.run(self.next_batch)
-                        predictions = sess.run(self.predictions['classes'], feed_dict={ self.inputs: inputs, self.training: False })
+                for i in range(config.batch_steps):
+                    start_vect = time.time()
+                    inputs = sess.run(self.next_batch)
+                    predictions = sess.run(self.predictions['classes'], feed_dict={ self.inputs: inputs, self.training: False })
+                    with open(pred_out_path + "_" + str(int(time.time())) + ".txt", 'a') as pred_file:
                         pred_file.writelines([str(line) + "\n" for line in predictions])
-                        print("Batch : %s / %s, Evaluate Runtime : %.2f seconds..." % (i + 1, config.num_batches, time.time() - start_vect))
+                    print("Batch : %s / %s, Evaluate Runtime : %.2f seconds..." % (i + 1, config.num_batches, time.time() - start_vect))
                 print("Evaluated..")
 
 

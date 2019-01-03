@@ -1,5 +1,3 @@
-model_checkpoint_path: "-22"
-all_model_checkpoint_paths: "-19"
-all_model_checkpoint_paths: "-20"
-all_model_checkpoint_paths: "-21"
-all_model_checkpoint_paths: "-22"
+version https://git-lfs.github.com/spec/v1
+oid sha256:6504973ea29d0473535ba393f1ae43441b2e83bdf58592c6e8bda96f6e6dacd2
+size 165

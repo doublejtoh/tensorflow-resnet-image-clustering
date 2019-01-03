@@ -31,9 +31,9 @@ tensorflow-renset-image-clustering
 # NAVER D2 FEST
 For Evaluation, We put weights(epochs 23) files in models/WomenProducts/.
  
-For Naver D2 Fest training dataset prediction, just run <pre><code>python3 src/main.py --training_predict</code></pre>
-For Naver D2 Fest test dataset prediction, firstly <b>put your test dataset in img/WomenProducts/test/ .</b> secondly, run <pre><code>python3 src/make_labels_true.py</code></pre>
-Lastly, run <pre><code>python3 src/main.py --test_predict</code></pre>
+For Naver D2 Fest training dataset prediction, firstly <b>put your training dataset in img/WomenProducts/training/ .</b> Secondly, run <pre><code>python3 src/main.py --training_predict</code></pre>
+For Naver D2 Fest test dataset prediction, firstly <b>put your test dataset in img/WomenProducts/test/ .</b> Secondly, run <pre><code>python3 src/make_labels_true.py</code></pre>
+Last, run <pre><code>python3 src/main.py --test_predict</code></pre>
 
 ## Training
 * in <b>src/config.py</b>, modify these to fit your dataset:<pre><code>
